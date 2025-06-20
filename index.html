@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scales App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #prompt {
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 20px;
+        }
+        button {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="prompt">Tap to Begin</div>
+    <button onclick="generatePrompt()">New Prompt</button>
+
+    <script>
+        const sensations = [
+            "Heat", "Cold", "Caught in the rain", "Walking in mud", "Walking on ice", "Windy", "Foggy", "In the snow", "Tired", "Wet hands",
+            "Soaked clothes", "Greasy hands", "Dirty hands", "Paper cut", "Face covered in soap", "Headache", "Toothache", "Bad cough", "Sore throat", "Running nose",
+            "High fever", "Pulled ankle", "Particle in my eye", "New dress/shirt", "New, tight shoes", "Hungry", "Sleepy", "Bug crawling on me", "Thirsty", "Pleasant breeze",
+            "Comfortable chair", "Uncomfortable chair", "Seat on cold bench", "Seat on hot radiator", "Out of breath", "Bright light", "Twilight", "Wool to bare skin", "Moist air; cold",
+            "Moist air; hot", "Dry heat", "Moist heat", "Walk in swamp", "Scratchy shirt", "Wet hair", "Shampooed hair", "Stuffed ears", "Popped ears", "Smoky air",
+            "Just woke up"
+        ];
+
+        const events = [
+            "Doctor’s office", "Train Carriage", "Garden, spring", "Garden, autumn", "Bus stop; night", "Hospital room", "Train station", "Airport", "Ocean; winter", "Ocean; summer",
+            "On deck of a boat", "My fiancé’s room", "Room needs repairs", "Hotel room", "Playground", "Museum gallery", "Childhood bedroom", "Park where you broke up with him/her",
+            "Dark basement; mice", "Dark basement; tasty goodies", "College dorm room", "Your old classroom", "Classroom; before finals", "By his/her door; first date",
+            "By the principal’s office door", "Forest", "Skyscraper roof", "Sculpture garden", "Water dripping on you from the ceiling", "It’s your birthday", "Expecting a call",
+            "Phone call: good news", "Phone call: bad news", "Found a wallet", "Sitting on anthill", "Restaurant; got the bill; wallet missing", "Book: page missing", "Good review",
+            "Bad review", "Apology note", "Acceptance letter: accepted", "Acceptance letter: rejected", "Fight; he/she left", "After first date; went well", "After first date; went badly",
+            "Someone knocked on my window/door", "Expecting someone’s arrival", "Tonight’s the party; roommate borrowed your jacket", "Phone bill is too high", "Pay check is too high"
+        ];
+
+        const prompts = sensations.concat(events);
+
+        function generatePrompt() {
+            const random = prompts[Math.floor(Math.random() * prompts.length)];
+            document.getElementById('prompt').textContent = random;
+        }
+    </script>
+</body>
+</html>
